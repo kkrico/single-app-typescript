@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "echo 'Em breve, para quando houver PRD' && exit 1",
+    "start": "npm run deploy && node dist/index.js",
     "start:dev": "concurrently \"npm:start:node\" \"npm:start:react\"",
     "start:react": "cd client && npm start",
     "start:node": "ts-node-dev --inspect=8181 --respawn --transpileOnly src/index.ts --watch client/dist/main.js",
