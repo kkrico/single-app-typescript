@@ -6,10 +6,6 @@ require('dotenv').config();
 const PORT = process.env.PORT ?? 8080;
 const app = express();
 
-interface Foo {
-    message: string;
-}
-
 const helloWorld = (_req: express.Request, res: express.Response): void => {
     res.json({
         message: 'Mensagem de Exemplo ' + process.env.FOO,
