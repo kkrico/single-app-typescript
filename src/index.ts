@@ -6,6 +6,12 @@ require('dotenv').config();
 const PORT = process.env.PORT ?? 8080;
 const app = express();
 
+enum Route {
+    helloWorld = '/helloWrold',
+    foo = '/foo',
+    wildCard = '*',
+}
+
 const helloWorld = (_req: express.Request, res: express.Response): void => {
     res.json({
         message: 'Mensagem de Exemplo ' + process.env.FOO,
@@ -20,13 +26,13 @@ const foo = (_req: express.Request, res: express.Response): void => {
 
 const router = express
     .Router()
-    .get('/hello-world', helloWorld)
-    .get('/foo', foo);
+    .get(Route.helloWorld, helloWorld)
+    .get(Route.foo, foo);
 
 app.use('/api/v1', router);
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get('*', (_req, res) => {
+app.get(Route.wildCard, (_req, res) => {
     res.sendFile(path.join(__dirname + '/client/dist/index.html'));
 });
 
