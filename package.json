@@ -14,6 +14,7 @@
     "test": "concurrently \"npm:test:node\" \"npm:test:react\"",
     "test:node": "jest --passWithNoTests",
     "test:react": "cd client && jest --passWithNoTests",
+    "install:all": "npm install && cd client && npm install",
     "deploy": "tsc --project tsconfig.json"
   },
   "keywords": [],
