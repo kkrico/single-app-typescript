@@ -1,0 +1,34 @@
+{
+    "private": true,
+    "name": "monorepo-react-express",
+    "dependencies": {
+        "dotenv": "^8.2.0"
+    },
+    "scripts": {
+        "start": "echo 'Soon' && exit 1",
+        "start:dev": "concurrently \"npm:start:client\" \"npm:start:server\"",
+        "start:client": "yarn workspace @monorepo-react-express/client start:dev",
+        "start:server": "yarn workspace @monorepo-react-express/server start",
+        "test": "concurrently \"npm:test:client\" \"npm:test:server\"",
+        "test:client": "yarn workspace @monorepo-react-express/client test",
+        "test:server": "yarn workspace @monorepo-react-express/server test",
+        "lint": "eslint --fix --ext .ts,.tsx,.js ./"
+    },
+    "devDependencies": {
+        "@types/jest": "^25.1.4",
+        "@typescript-eslint/eslint-plugin": "^2.25.0",
+        "@typescript-eslint/parser": "^2.25.0",
+        "concurrently": "^5.1.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.10.1",
+        "eslint-plugin-import": "^2.20.1",
+        "eslint-plugin-prettier": "^3.1.2",
+        "jest": "^25.2.2",
+        "prettier": "^2.0.2",
+        "ts-jest": "^25.2.1",
+        "typescript": "^3.8.3"
+    },
+    "workspaces": [
+        "packages/*"
+    ]
+}
