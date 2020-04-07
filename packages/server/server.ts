@@ -1,9 +1,8 @@
 import React from 'react';
 import express from 'express';
 import cors from 'cors';
-import path = require('path');
 import { router } from './middlewares/routesMiddleware';
-import { HelloWorld } from '@monorepo-react-express/client/components/Hello';
+import App from '@monorepo-react-express/client/components';
 import { Express as ExpressApp } from 'express-serve-static-core';
 import { renderToString } from 'react-dom/server';
 
@@ -27,9 +26,7 @@ export default (): ExpressApp => {
     app.use(apiVersion, router);
 
     app.get('/', (_req, res) => {
-        const body = renderToString(
-            React.createElement(HelloWorld, { framework: 'Foo', compiler: 'Demo' }),
-        );
+        const body = renderToString(React.createElement(App));
 
         res.send(
             html({

@@ -1,7 +1,6 @@
 import '@monorepo-react-express/shared';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import App from './components';
 
-import { HelloWorld } from './components/Hello';
-
-ReactDOM.render(<HelloWorld compiler="Typescript" framework="React" />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
